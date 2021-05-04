@@ -85,7 +85,9 @@ const upload = (progress: vscode.Progress<object>, config: vscode.WorkspaceConfi
 	} else {
 		return COSUpload(config, imagePath, selectFilePath).then((res: any) => {
 			console.log('Succeed to upload image to cos.')
-			const img = `![${res.name}](${res.url})`
+			const pathArr = imagePath.split('/')
+			const fileName = pathArr[pathArr.length - 1]
+			const img = `![${fileName}](${res.url})`
 
 			editor.edit((textEditorEdit: any) => {
 				textEditorEdit.insert(editor.selection.active, img)
@@ -234,7 +236,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		vscode.window.showOpenDialog({
-            filters: {'Images': ['png', 'jpg', 'gif', 'bmp']}
+            filters: {'Images': ['png', 'jpg', 'jpeg', 'gif', 'bmp']}
         }).then(result => {
             if (result) {
 				const {fsPath} = result[0]

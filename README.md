@@ -1,28 +1,25 @@
 # tencent-cloud-cos-upload-image
 
-VSCode 插件，支持直接在 Markdown 文件中 **粘贴截图** 和 **选择图片** 上传到腾讯云COS，得到文件地址后引用显示，大家直接在本地写 Markdown 时特别实用。
+原版：https://github.com/Galen-Yip/tencent-cloud-cos-upload-image
 
-如果你没听说过腾讯云COS，请点击[传送门](https://cloud.tencent.com/product/cos)。简单理解的话，你可以把它当做图床。
-
-此插件拓展了 vscode-upload-tencentcos 的功能，它只支持了选择文件上传，但缺乏 Markdown 中常见的粘贴截图，同时不支持文件私有的需求。
-
----
+对原版进行一些修改
 
 ## 使用
 
-在 Markdown 文件中
+`cmd + opt + o` 选择本地文件上传至 COS
 
-* 使用 ctrl+ alt + p (Windows) / cmd + opt + p (Mac), 粘贴板里面的图片会直接上传至cos
-* 使用 ctrl+ alt + o (Windows) / cmd + opt + o (Mac), 选择本地文件上传至cos
+## 发布
 
-![demo.gif](https://galenye-1251496585.cos.ap-guangzhou.myqcloud.com/demo.gif)
+```sh
+npm run deploy
+```
 
 ## 参数配置
 
 ```js
 {
     // 地区，在COS对象存储中bucket对应的地域
-    "tencentCOSUpload.region": "",    
+    "tencentCOSUpload.region": "",
     // secretId，在 https://console.cloud.tencent.com/cam/capi 中获取
     "tencentCOSUpload.secretId": "",
     // secretKey，在 https://console.cloud.tencent.com/cam/capi 中获取
@@ -41,13 +38,3 @@ VSCode 插件，支持直接在 Markdown 文件中 **粘贴截图** 和 **选择
     "tencentCOSUpload.localPath": "/tmp/.tencentCOSUpload"
 }
 ```
-
------------------------------------------------------------------------------------------------------------
-
-
-### Reference
-
-* [vscode-aliyun-upload-image](https://github.com/vvkee/vscode-aliyun-upload-image)
-* [vscode-upload-tencentCOS](https://github.com/Sean10/vscode-upload-tencentCOS)
-
-**Enjoy!**
